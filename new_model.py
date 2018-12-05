@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 28 19:06:55 2018
-
-@author: chloe
-"""
 # Import relevant packages
 import matplotlib.pyplot
 import agentframework
@@ -61,4 +54,5 @@ for x in range(num_of_agents):
 # Animate the model until the stopping condition has been met
 animation = matplotlib.animation.FuncAnimation(fig, update, repeat=False)
 matplotlib.pyplot.show()
-#animation.save("leeds_final.gif", writer="imagemagick")
+# Save the animation
+animation.save("leeds_final.gif", writer="imagemagick")
