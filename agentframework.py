@@ -1,6 +1,8 @@
 import random
 
 # Create a new class called Agent
+# Create two new variables, x and y, and give them a random number between 0 and 100
+# Add the environment list and agent list into the class (defined in the model)
 class Agent:
     def __init__(self,environment,agents):
         self.x = random.randint(0,100)
@@ -22,17 +24,19 @@ class Agent:
             self.y = (self.y - 1) % 100
 
 # This function makes the agents eat the environment around them by 10 if the 
-# coordinates are greater than 10            
+# coordinates are greater than 10  
+# The agents keep the food in a store
     def eat(self):
         if self.environment[self.y][self.x] > 10:
             self.environment[self.y][self.x] -= 10
             self.store += 10
+# Create stopping condition within eat function whereby if an agents food stores are more than
+# 5000, none of the agents will continue to move
         if self.store >= 5000:
             self.move = 0
 
 # This function makes agents search for close neighbours and share resources 
-# with them         
-            
+# with them                 
     def share_with_neighbours(self,neighbourhood):
         for agent in self.agents:
             dist = self.distance_between(agent)
